@@ -1,10 +1,11 @@
-import './App.css';
-import {useState} from "react";
+import "./App.css";
+import { useState } from "react";
+import Navbar from "./Components/Navbar";
 import LessonPlanTemplate from "./Components/LessonPlanTemplate/template";
 import LessonPlan from "./Components/LessonPlanTemplate/lessonPlan";
 
 function App() {
-  const [formValues, setFormValues] = useState();
+  const [formValues, setFormValues] = useState("");
 
   function setForm(e) {
     setFormValues(e);
@@ -12,8 +13,11 @@ function App() {
 
   return (
     <div className="App">
-      <LessonPlanTemplate onChangeForm={(e) => setForm(e)} />
-      <LessonPlan form={formValues} />
+        <Navbar />
+        <div className="row m-4 px-2 py-4">
+          <LessonPlanTemplate onChangeForm={e => setForm(e)} />
+          <LessonPlan form={formValues} />
+        </div>
     </div>
   );
 }

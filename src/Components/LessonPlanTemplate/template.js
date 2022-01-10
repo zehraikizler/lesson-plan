@@ -1,33 +1,34 @@
-//import React, {useState} from 'react';
+import React, {useState} from 'react';
 
-function LessonPlanTemplate() {
-  // const [form, setForm] = useState({ 
-  //   title: "", 
-  //   lessonName: "", 
-  //   class: "", 
-  //   nameUnit: "", 
-  //   subject: "", 
-  //   duration: "", 
-  //   earnings: "", 
-  //   method: "", 
-  //   tools: "", 
-  //   drawAttention: "",
-  //   motivation: "",
-  //   review: "",
-  //   transition: "",
-  //   activity: "",
-  //   measuring: ""
-  // });
+function LessonPlanTemplate(props) {
+  const [form, setForm] = useState({ 
+    title: "", 
+    lessonName: "", 
+    class: "", 
+    nameUnit: "", 
+    subject: "", 
+    duration: "", 
+    earnings: "", 
+    method: "", 
+    tools: "", 
+    drawAttention: "",
+    motivation: "",
+    review: "",
+    transition: "",
+    activity: "",
+    measuring: ""
+  });
 
-  // const onChangeInput = (e) =>
-  // {
-  //   setForm({...form, [e.target.name]: e.target.value})
-  // }
+  const onChangeInput = (e) =>
+  {
+    setForm({...form, [e.target.name]: e.target.value});
+    props.onChangeForm({...form, [e.target.name]: e.target.value});
+  }
 
   return (
-    <div>
+    <div form={form}>
 
-      {/* <div className="colon" style={{width: "100%"}}>
+      <div className="colon" style={{width: "100%"}}>
         <h1>
           <input name="title" value={form.title} onChange={onChangeInput} /> Öğretimi Ders Planı
         </h1>
@@ -120,7 +121,7 @@ function LessonPlanTemplate() {
             <input name="measuring" value={form.measuring} onChange={onChangeInput} />
           </tr>
         </table>
-      </div> */}
+      </div>
 
     </div>
   );

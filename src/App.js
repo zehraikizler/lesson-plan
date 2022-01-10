@@ -6,13 +6,13 @@ import LessonPlan from "./Components/LessonPlanTemplate/lessonPlan";
 function App() {
   const [formValues, setFormValues] = useState();
 
-function formduzenleyici(data) {
-  console.log(data);
-  setFormValues(data);
-}
+  function setForm(e) {
+    setFormValues(e);
+  }
+
   return (
     <div className="App">
-      <LessonPlanTemplate onChange={(e) => formduzenleyici(e)} />
+      <LessonPlanTemplate onChangeForm={(e) => setForm(e)} />
       <LessonPlan form={formValues} />
     </div>
   );
